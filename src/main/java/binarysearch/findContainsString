@@ -1,0 +1,30 @@
+Having an ordened array of strings ["att", "attualization", "boratt", "Boratt" ...] and a key
+expression ["attu"], code a solution that finds the best way to find the index of the first
+appearance of the key expression.
+In this case, for example, the answer would be 1.
+
+This is a very similar problem that could be used to refresh the mindset of thinking on
+search algorithms and time complexity.
+I would look for the brute force option to find the first element in the array and the
+binary search option.   And understand that one is faster than the other.
+Be mindful of edge cases such as, not found, empty array, upper and lower case.
+
+
+array
+find the first occurrence of string that contains a target into string
+
+["att", "attualization", "boratt", "Boratt", "Car"]
+
+low = 0
+high = 4
+
+mid = (4 - 0)/2 = 2
+target = "att"
+
+low = 0
+high = mid - 1 = 1
+
+mid = 1 - 0 = 1/2 = 1
+
+target.contains(array[mid]) && !target.contains(array[mid - 1])
+    return mid

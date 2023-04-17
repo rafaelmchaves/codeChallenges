@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 public class SockMerchant {
-
     public static int sockMerchant(int n, List<Integer> ar) {
 
         if (ar == null || ar.isEmpty()) {
