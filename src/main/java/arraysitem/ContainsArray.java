@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class ContainsArray {
 
-	// Given 2 arrays, create a function that let's a user know (true/false) whether these two arrays contain any common items
+	// Given 2 arrays, create a function that lets a user know (true/false) whether these two arrays contain any common items
 	//For Example:
 	//const array1 = ['a', 'b', 'c', 'x'];//const array2 = ['z', 'y', 'i'];
 	//should return false.
@@ -19,7 +19,7 @@ public class ContainsArray {
 
 		var array1 = new char[] {'a', 'b', 'c', 'x'};
 	 	var array2 = new char[] {'z', 'y', 'd'};
-		 System.out.println(containsCommonItem(array1, array2));
+	    System.out.println(containsCommonItem(array1, array2));
 	}
 
 	private static boolean containsCommonItem(char[] array1, char[] array2) {
