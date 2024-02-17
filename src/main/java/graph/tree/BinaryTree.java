@@ -43,6 +43,14 @@ public class BinaryTree {
         }
     }
 
+    static void printInOrder(Node node) {
+        if (node != null) {
+            printInOrder(node.left);
+            System.out.println(node.value);
+            printInOrder(node.right);
+        }
+    }
+
     public static void main(String[] args) {
         final var bt = new BinaryTree();
         bt.addNode(5);
@@ -52,5 +60,6 @@ public class BinaryTree {
         bt.addNode(6);
 
         printPreOrder(bt.root);
+        printInOrder(bt.root);
     }
 }
