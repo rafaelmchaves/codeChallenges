@@ -25,6 +25,20 @@ public class LinkedListGeneric {
         tail = null;
     }
 
+    public void prepend(Person person) {
+
+        final var newNode = new NodeGeneric<>(person);
+
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            return;
+        }
+
+        newNode.next = head;
+        head = newNode;
+    }
+
     public void append(Person person) {
 
         final var newNode = new NodeGeneric<>(person);
@@ -84,6 +98,7 @@ public class LinkedListGeneric {
         linkedList.append(new Person("Rafael", "Developer"));
         linkedList.append(new Person("Jose", "Doctor"));
         linkedList.append(new Person("Maria", "Engineer"));
+        linkedList.prepend(new Person("Amanda", "Cooker"));
 
         linkedList.printList();
 
