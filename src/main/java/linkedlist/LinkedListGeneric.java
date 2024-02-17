@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 class NodeGeneric<T> {
@@ -62,6 +64,21 @@ public class LinkedListGeneric {
         return Optional.empty();
     }
 
+    public List<Person> findPeopleByOccupation(String occupation) {
+
+        final var people = new ArrayList<Person>();
+
+        var current = head;
+        while (current != null) {
+            if (current.value.getOccupation().equalsIgnoreCase(occupation)) {
+                people.add(current.value);
+            }
+            current = current.next;
+        }
+
+        return people;
+    }
+
     public static void main(String[] args) {
         LinkedListGeneric linkedList = new LinkedListGeneric();
         linkedList.append(new Person("Rafael", "Developer"));
@@ -72,10 +89,14 @@ public class LinkedListGeneric {
 
         getByName(linkedList, "Rafael");
         getByName(linkedList, "Pedro");
+
+        linkedList.findPeopleByOccupation("Developer").forEach(person -> System.out.println("Name: " + person.getName()));
+        linkedList.findPeopleByOccupation("developer").forEach(person -> System.out.println("Name: " + person.getName()));
+        linkedList.findPeopleByOccupation("Driver").forEach(person -> System.out.println("Name: " + person.getName()));
     }
 
     private static void getByName(LinkedListGeneric linkedList, String name) {
-        linkedList.findByName(name).ifPresentOrElse(person -> System.out.println("We found the person. Occupation:" + person.getOccupation()),
+        linkedList.findByName(name).ifPresentOrElse(person -> System.out.println("We've found the person. Occupation:" + person.getOccupation()),
                 () ->  System.out.println("There is no one with this name in the list"));
     }
 }
