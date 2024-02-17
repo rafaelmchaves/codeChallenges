@@ -48,7 +48,6 @@ public class BinaryTree {
             } else {
                 return node.value;
             }
-
         }
 
         return -1;
@@ -93,11 +92,11 @@ public class BinaryTree {
         System.out.println("Found: " + bt.findElement(6));
         System.out.println("Found: " + bt.findElement(16));
 
-        System.out.println();
+        System.out.println("Pre order:");
         printPreOrder(bt.root);
-        System.out.println();
+        System.out.println("In order:");
         printInOrder(bt.root);
-        System.out.println();
+        System.out.println("Post order:");
         printPostOrder(bt.root);
     }
 }
