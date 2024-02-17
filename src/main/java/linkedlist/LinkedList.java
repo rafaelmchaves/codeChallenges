@@ -1,3 +1,5 @@
+package linkedlist;
+
 class Node {
     int data;
     Node next;
@@ -68,7 +70,7 @@ public class LinkedList {
         System.out.println();
     }
 
-    // Main method to test the LinkedList implementation
+    // Main method to test the linkedlist.LinkedList implementation
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
 
