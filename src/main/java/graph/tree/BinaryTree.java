@@ -18,29 +18,39 @@ public class BinaryTree {
     Node root;
 
     public void addNode(int value) {
-
         root = add(value, root);
-
     }
 
     Node add(int value, Node node) {
-
         if (node == null) {
             return new Node(value);
         }
 
         if (value <= node.value) {
-            node.right = add(value, node.right);
-        } else {
             node.left = add(value, node.left);
+        } else {
+            node.right = add(value, node.right);
         }
 
         return node;
     }
 
+    static void printPreOrder(Node node) {
+        if (node != null) {
+            System.out.println(node.value);
+            printPreOrder(node.left);
+            printPreOrder(node.right);
+        }
+    }
+
     public static void main(String[] args) {
         final var bt = new BinaryTree();
         bt.addNode(5);
+        bt.addNode(7);
+        bt.addNode(3);
+        bt.addNode(12);
         bt.addNode(6);
+
+        printPreOrder(bt.root);
     }
 }
