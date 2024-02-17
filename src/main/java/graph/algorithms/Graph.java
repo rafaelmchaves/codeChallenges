@@ -30,9 +30,11 @@ public class Graph {
        graph.addNode("a");
        graph.addNode("b");
        graph.addNode("c");
+       graph.addNode("d");
 
        graph.addBiDirectionalEdge("a", "b");
        graph.addOneDirectionalEdge("a", "c");
        graph.addBiDirectionalEdge("b", "c");
+       graph.addOneDirectionalEdge("c", "d");
     }
 }
