@@ -35,6 +35,25 @@ public class BinaryTree {
         return node;
     }
 
+    int findElement(int value) {
+        return find(value, root);
+    }
+    int find(int value, Node node) {
+
+        if (node != null) {
+            if (value < node.value) {
+                return find(value, node.left);
+            } else if (value > node.value) {
+                return find(value, node.right);
+            } else {
+                return node.value;
+            }
+
+        }
+
+        return -1;
+    }
+
     static void printPreOrder(Node node) {
         if (node != null) {
             System.out.println(node.value);
@@ -67,6 +86,14 @@ public class BinaryTree {
         bt.addNode(12);
         bt.addNode(6);
 
+        System.out.println("Found: " + bt.findElement(7));
+        System.out.println("Found: " + bt.findElement(12));
+        System.out.println("Found: " + bt.findElement(5));
+        System.out.println("Found: " + bt.findElement(3));
+        System.out.println("Found: " + bt.findElement(6));
+        System.out.println("Found: " + bt.findElement(16));
+
+        System.out.println();
         printPreOrder(bt.root);
         System.out.println();
         printInOrder(bt.root);
