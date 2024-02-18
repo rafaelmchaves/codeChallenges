@@ -85,7 +85,7 @@ public class Graph {
        graph.addOneDirectionalEdge("a", "f");
        graph.addOneDirectionalEdge("f", "e");
 
-//        System.out.println("Destination node has found:" + graph.searchDFS("a", "e"));
+        System.out.println("Destination node has found:" + graph.searchDFS("a", "e"));
         System.out.println("Destination node has found:" + graph.searchDFSRecursive("a", "e", new LinkedHashSet<>()));
         System.out.println("Destination node has found:" + graph.searchDFSRecursive("a", "d", new LinkedHashSet<>()));
         System.out.println("Destination node has found:" + graph.searchDFSRecursive("d", "a", new LinkedHashSet<>()));
