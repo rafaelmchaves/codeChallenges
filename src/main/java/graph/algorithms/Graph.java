@@ -41,7 +41,6 @@ public class Graph {
                 visited.add(node);
                 for (Node n: adjNodes.get(node)) {
                     stack.push(n);
-//                    searchDFS(n.getLabel(), destination);
                 }
             }
         }
@@ -61,10 +60,8 @@ public class Graph {
         }
 
         for (Node n: adjNodes.get(node)) {
-            if (!visited.contains(n)) {
-                if (searchDFSRecursive(n.getLabel(), destination, visited)) {
-                    return true;
-                }
+            if (!visited.contains(n) && searchDFSRecursive(n.getLabel(), destination, visited)) {
+                return true;
             }
         }
 
@@ -92,5 +89,7 @@ public class Graph {
         System.out.println("Destination node has found:" + graph.searchDFSRecursive("a", "e", new LinkedHashSet<>()));
         System.out.println("Destination node has found:" + graph.searchDFSRecursive("a", "d", new LinkedHashSet<>()));
         System.out.println("Destination node has found:" + graph.searchDFSRecursive("d", "a", new LinkedHashSet<>()));
+        System.out.println("Destination node has found:" + graph.searchDFSRecursive("c", "a", new LinkedHashSet<>()));
+        System.out.println("Destination node has found:" + graph.searchDFSRecursive("f", "c", new LinkedHashSet<>()));
     }
 }
