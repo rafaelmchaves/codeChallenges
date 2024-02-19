@@ -68,6 +68,32 @@ public class Graph {
         return false;
     }
 
+    public boolean searchBFS(String root, String destination, Set<Node> visited) {
+
+        final var queue = new LinkedList<Node>();
+
+        final var nodeDestination = new Node(destination);
+        var node = new Node(root);
+        queue.add(node);
+
+        while (!queue.isEmpty()) {
+            node = queue.pollLast();
+
+            for (Node n: adjNodes.get(node)) {
+
+                if (n.equals(nodeDestination)) {
+                    return true;
+                }
+                if (!visited.contains(n)) {
+                    visited.add(n);
+                    queue.add(n);
+                }
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
        final var graph = new Graph();
        graph.addNode("a");
@@ -85,11 +111,20 @@ public class Graph {
        graph.addOneDirectionalEdge("a", "f");
        graph.addOneDirectionalEdge("f", "e");
 
-        System.out.println("Destination node has found:" + graph.searchDFS("a", "e"));
-        System.out.println("Destination node has found:" + graph.searchDFSRecursive("a", "e", new LinkedHashSet<>()));
-        System.out.println("Destination node has found:" + graph.searchDFSRecursive("a", "d", new LinkedHashSet<>()));
-        System.out.println("Destination node has found:" + graph.searchDFSRecursive("d", "a", new LinkedHashSet<>()));
-        System.out.println("Destination node has found:" + graph.searchDFSRecursive("c", "a", new LinkedHashSet<>()));
-        System.out.println("Destination node has found:" + graph.searchDFSRecursive("f", "c", new LinkedHashSet<>()));
+       System.out.println("DFS:");
+       System.out.println("Destination node has found:" + graph.searchDFS("a", "e"));
+       System.out.println("Destination node has found:" + graph.searchDFSRecursive("a", "e", new LinkedHashSet<>()));
+       System.out.println("Destination node has found:" + graph.searchDFSRecursive("a", "d", new LinkedHashSet<>()));
+       System.out.println("Destination node has found:" + graph.searchDFSRecursive("d", "a", new LinkedHashSet<>()));
+       System.out.println("Destination node has found:" + graph.searchDFSRecursive("c", "a", new LinkedHashSet<>()));
+       System.out.println("Destination node has found:" + graph.searchDFSRecursive("f", "c", new LinkedHashSet<>()));
+
+       System.out.println("BFS:");
+       System.out.println("Destination node has found:" + graph.searchBFS("a", "e", new LinkedHashSet<>()));
+       System.out.println("Destination node has found:" + graph.searchBFS("a", "d", new LinkedHashSet<>()));
+       System.out.println("Destination node has found:" + graph.searchBFS("d", "a", new LinkedHashSet<>()));
+       System.out.println("Destination node has found:" + graph.searchBFS("c", "a", new LinkedHashSet<>()));
+       System.out.println("Destination node has found:" + graph.searchBFS("f", "c", new LinkedHashSet<>()));
+
     }
 }
