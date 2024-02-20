@@ -8,7 +8,6 @@ import java.util.HashSet;
  * Input : abcd
  * Output : abcd abc ab a bcd bc b cd c d
  * All Elements are Distinct
- *
  * Input : aaa
  * Output : aaa aa a aa a a
  * All elements are not Distinct
@@ -22,10 +21,10 @@ public class DistinctSubstring {
         }
         final HashSet<String> distinctElements = new HashSet<>();
 
-        //O(nˆ2)
-        for (int i = 0; i <= string.length(); i++) {
-            for(int j = i + 1; j <= string.length(); j++) {
-                distinctElements.add(string.substring(i, j));
+        //O(nˆ3logn)
+        for (int i = 0; i <= string.length(); i++) { //O(n)
+            for(int j = i + 1; j <= string.length(); j++) { //O(nlogn)
+                distinctElements.add(string.substring(i, j));//O(n)
             }
         }
 
