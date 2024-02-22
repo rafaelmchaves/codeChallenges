@@ -21,10 +21,10 @@ public class DistinctSubstring {
         }
         final HashSet<String> distinctElements = new HashSet<>();
 
-        //O(nˆ3logn)
+        //O(nˆ3 logn)
         for (int i = 0; i <= string.length(); i++) { //O(n)
             for(int j = i + 1; j <= string.length(); j++) { //O(nlogn)
-                distinctElements.add(string.substring(i, j));//O(n)
+                distinctElements.add(string.substring(i, j));//O(nlogn)
             }
         }
 
