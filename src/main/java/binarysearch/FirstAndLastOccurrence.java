@@ -1,15 +1,15 @@
 package binarysearch;
 
-public class FirstAndLastOccurrenceOccurrence {
+public class FirstAndLastOccurrence {
 
 	public static void main(String[] args) {
 
 		final var array = new int[]{-1, 1, 2, 2, 2, 5, 6, 12, 12};
-//
-//		final var result = getFindAndLastOccurrence(-1, array);
-//
-//		System.out.println("first occurrence: " + result[0]);
-//		System.out.println("last occurrence: " + result[1]);
+
+		final var result = getFindAndLastOccurrence(-1, array);
+
+		System.out.println("first occurrence: " + result[0]);
+		System.out.println("last occurrence: " + result[1]);
 
 		System.out.println("target first position: " +  getFirstOccurrence(2, array, 0, array.length - 1));
 		System.out.println("target first position: " +  getFirstOccurrence(-1, array, 0, array.length - 1));
