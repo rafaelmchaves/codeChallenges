@@ -4,10 +4,20 @@ public class FirstAndLastOccurrenceOccurrence {
 
 	public static void main(String[] args) {
 
-		final var result = getFindAndLastOccurrence(-1, new int[]{-1, 1, 2, 2, 2, 5, 6, 12, 12});
+		final var array = new int[]{-1, 1, 2, 2, 2, 5, 6, 12, 12};
+//
+//		final var result = getFindAndLastOccurrence(-1, array);
+//
+//		System.out.println("first occurrence: " + result[0]);
+//		System.out.println("last occurrence: " + result[1]);
 
-		System.out.println("first occurrence: " + result[0]);
-		System.out.println("last occurrence: " + result[1]);
+		System.out.println("target first position: " +  getLastOccurrence(2, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getLastOccurrence(-1, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getLastOccurrence(12, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getLastOccurrence(6, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getLastOccurrence(5, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getLastOccurrence(8, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getLastOccurrence(15, array, 0, array.length - 1));
 	}
 
 	public static int[] getFindAndLastOccurrence (final int target, final int[] array) {
@@ -51,7 +61,10 @@ public class FirstAndLastOccurrenceOccurrence {
 
 		int mid = (high - low)/2 + low;
 
-		if (mid == array.length - 1 || (target == array[mid] && target < array[mid + 1])) {
+		if (
+				(mid == array.length - 1 && target == array[mid])
+						|| (target == array[mid] && target < array[mid + 1])
+		) {
 			return mid;
 		} else if (target < array[mid]) {
 			return getLastOccurrence(target, array, low, mid - 1);
@@ -59,4 +72,5 @@ public class FirstAndLastOccurrenceOccurrence {
 			return getLastOccurrence(target, array, mid + 1, high);
 		}
 	}
+
 }
