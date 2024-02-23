@@ -11,13 +11,14 @@ public class FirstAndLastOccurrenceOccurrence {
 //		System.out.println("first occurrence: " + result[0]);
 //		System.out.println("last occurrence: " + result[1]);
 
-		System.out.println("target first position: " +  getLastOccurrence(2, array, 0, array.length - 1));
-		System.out.println("target first position: " +  getLastOccurrence(-1, array, 0, array.length - 1));
-		System.out.println("target first position: " +  getLastOccurrence(12, array, 0, array.length - 1));
-		System.out.println("target first position: " +  getLastOccurrence(6, array, 0, array.length - 1));
-		System.out.println("target first position: " +  getLastOccurrence(5, array, 0, array.length - 1));
-		System.out.println("target first position: " +  getLastOccurrence(8, array, 0, array.length - 1));
-		System.out.println("target first position: " +  getLastOccurrence(15, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getFirstOccurrence(2, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getFirstOccurrence(-1, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getFirstOccurrence(12, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getFirstOccurrence(6, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getFirstOccurrence(5, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getFirstOccurrence(8, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getFirstOccurrence(15, array, 0, array.length - 1));
+		System.out.println("target first position: " +  getFirstOccurrence(-2, array, 0, array.length - 1));
 	}
 
 	public static int[] getFindAndLastOccurrence (final int target, final int[] array) {
@@ -41,7 +42,8 @@ public class FirstAndLastOccurrenceOccurrence {
 
 		int mid = (high - low)/2 + low;
 
-		if (mid == 0 || (target == array[mid] && target > array[mid -1])) {
+		if ((mid == 0 && target == array[mid])
+				|| (target == array[mid] && target > array[mid -1])) {
 			return mid;
 		}
 
