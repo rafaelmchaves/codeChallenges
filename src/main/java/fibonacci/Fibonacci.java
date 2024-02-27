@@ -23,6 +23,7 @@ public class Fibonacci {
 
         List<Long> list = new ArrayList<>(Arrays.asList(0L, 1L));
         for (int i = 2; i <= number; i++) {
+            calculations++;
             list.add(list.get(i - 1) + list.get(i -2));
         }
 
@@ -48,8 +49,13 @@ public class Fibonacci {
 
         System.out.println(fibonacciRecursive(43));
         System.out.println("fibonacciRecursive did " + calculations + " calculations");
+
         calculations = 0;
         System.out.println(fibonacciRecursiveMemo(43, new long[44]));
+        System.out.println("fibonacciRecursiveMemo did " + calculations + " calculations");
+
+        calculations = 0;
+        System.out.println(fibonacciIterative(43));
         System.out.println("fibonacciRecursiveMemo did " + calculations + " calculations");
 
     }
