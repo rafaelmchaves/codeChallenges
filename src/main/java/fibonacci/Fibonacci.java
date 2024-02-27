@@ -29,6 +29,7 @@ public class Fibonacci {
         return list.get(number);
     }
 
+    //O(n)
     private static long fibonacciRecursiveMemo(int number, long[] memo) {
 
         calculations++;
