@@ -6,9 +6,11 @@ import java.util.List;
 
 public class Fibonacci {
 
+    private static int calculations = 0;
     //O(2ˆn)
     private static long fibonacciRecursive(int number) {
 
+        calculations++;
         if (number < 2) {
             return number;
         }
@@ -27,12 +29,27 @@ public class Fibonacci {
         return list.get(number);
     }
 
+    private static long fibonacciRecursiveMemo(int number, long[] memo) {
+
+        calculations++;
+        if (number < 2) {
+            return number;
+        }
+
+        if (memo[number] == 0) {
+            memo[number] = fibonacciRecursiveMemo(number - 1, memo) + fibonacciRecursiveMemo(number -2, memo);
+        }
+
+        return memo[number];
+    }
+
     public static void main(String[] args) {
-        System.out.println(fibonacciRecursive(8));
+
         System.out.println(fibonacciRecursive(43));
-        System.out.println(fibonacciIterative(8));
-        System.out.println(fibonacciIterative(2));
-        System.out.println(fibonacciIterative(1));
-        System.out.println(fibonacciIterative(1000));
+        System.out.println("fibonacciRecursive did " + calculations + " calculations");
+        calculations = 0;
+        System.out.println(fibonacciRecursiveMemo(43, new long[44]));
+        System.out.println("fibonacciRecursiveMemo did " + calculations + " calculations");
+
     }
 }
