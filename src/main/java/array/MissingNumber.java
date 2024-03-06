@@ -25,6 +25,8 @@ public class MissingNumber {
         return 0;
     }
 
+    //O(n) time complexity
+    //O(1) space complexity
     public static int findWithoutTempArray(int[] array, int n) {
 
         int sum = 0;
