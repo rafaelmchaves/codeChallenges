@@ -18,7 +18,6 @@ public class Animal {
 
 class Dog extends Animal {
 
-	Integer.M
 	String animal = "dog";
 
 	public String bark() {
