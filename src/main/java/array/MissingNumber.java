@@ -5,11 +5,11 @@ public class MissingNumber {
     public static void main(String[] args) {
         
         int[] array = {1,2,4,6,3,7,8};
-        System.out.println(find(array, 8));
+        System.out.println(findWithoutArray(array, 8));
         int[] array2 = {1,2,4,6,3,7,8,12, 14,9, 13,5, 10};
-        System.out.println(find(array2, 14));
+        System.out.println(findWithoutArray(array2, 14));
         int[] array3 = {1,2,4,6,3,7,8,12, 14,9, 13,5, 10, 11};
-        System.out.println(find(array3, 14));
+        System.out.println(findWithoutArray(array3, 14));
 
     }
 
@@ -18,7 +18,7 @@ public class MissingNumber {
     private static int find(int[] array, int n) {
 
         if (array.length == n) {
-            return -1;
+            return 0;
         }
 
         boolean[] booleanArray = new boolean[n];
@@ -33,6 +33,21 @@ public class MissingNumber {
             }
         }
 
-        return -1;
+        return 0;
+    }
+
+    private static int findWithoutArray(int[] array, int n) {
+
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+
+        int completedNSum = 0;
+        for (int i = 1; i <= n; i++) {
+            completedNSum = completedNSum + i;
+        }
+
+        return completedNSum - sum;
     }
 }
