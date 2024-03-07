@@ -7,36 +7,32 @@ package array;
  */
 public class TrappingRainWater {
 
+    //time complexity O(nˆ2)
     public static int countTrappedWater(int[] array) {
 
-        int trapWater = 0;
-        int leftNumber = array[0];
-        boolean rightBorder = false;
-        int sum = 0;
-        int positions = 0;
+        int result = 0;
+        int left;
+        int right;
 
-        for (int i = 1; i < array.length; i++) {
+        int size = array.length;
 
-            int number = array[i];
+        for (int i = 1; i < size - 1; i++) {
 
-            if (number >= leftNumber) {
-               rightBorder = true;
-            } else {
-               sum += number;
-               positions += 1;
+            left = array[i];
+            for (int j = 0; j < i; j++) {
+                left = Math.max(array[j], left);
             }
 
-            if (rightBorder) {
-                trapWater += (positions * leftNumber) - sum;
-                rightBorder = false;
-                leftNumber = number;
-                positions = 0;
-                sum = 0;
+            right = array[i];
+            for (int j = i + 1; j < size; j++) {
+                right = Math.max(array[j], right);
             }
+
+            result += Math.min(left, right) - array[i];
 
         }
 
-        return trapWater;
+        return result;
     }
 
 }
