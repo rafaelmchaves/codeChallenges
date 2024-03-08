@@ -1,5 +1,7 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class TwoSum {
 
@@ -25,27 +27,25 @@ public class TwoSum {
 
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9)));
-		System.out.println(Arrays.toString(twoSum(new int[]{3,2,4}, 6)));
+		System.out.println(Arrays.toString(twoSum(new int[]{3,2,5,4}, 6)));
 		System.out.println(Arrays.toString(twoSum(new int[]{3,3}, 6)));
 		System.out.println(Arrays.toString(twoSum(new int[]{3,4}, 6)));
 
 	}
 
 	private static int[] twoSum(int[] array, int target) {
-		var set = new HashSet<Integer>();
-
-		for (int i = 0; i < array.length; i++) {
-
-			var difference = target - array[i];
-
-			if (set.contains(difference)) {
-				return new int[] {i - 1, i};
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int i= 0; i < array.length; i++) {
+			var result = target - array[i];
+			if (map.containsKey(result)) {
+				return new int[] {map.get(result), i};
 			} else {
-				set.add(array[i]);
+				map.put(array[i], i);
 			}
 		}
 
-		return null;
+		return new int[0];
+
 	}
 
 }
