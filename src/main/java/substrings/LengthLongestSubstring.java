@@ -48,12 +48,14 @@ public class LengthLongestSubstring {
             return 1;
         }
 
+        int maxLength = 0;
+
         while (count < characters.length) {
             for (int i = count; i < characters.length; i++) {
                 char c = characters[i];
                 if (foundCharacters.contains(c)) {
                     if (substringSize != 0) {
-                        substringsCount.add(substringSize);
+                        maxLength = Math.max(maxLength, substringSize);
                     }
 
                     foundCharacters = new HashSet<>();
@@ -65,7 +67,8 @@ public class LengthLongestSubstring {
             }
             count++;
         }
-        return substringsCount.stream().max(Integer::compareTo).orElse(0);
+
+        return maxLength;
     }
 
 }
