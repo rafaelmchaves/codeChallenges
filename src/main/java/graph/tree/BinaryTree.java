@@ -15,6 +15,7 @@ class Node {
 
 public class BinaryTree {
 
+    public static final int BALANCED_TREE_MAX_HEIGHT = 1;
     Node root;
 
     public void addNode(int value) {
@@ -33,6 +34,38 @@ public class BinaryTree {
         }
 
         return node;
+    }
+
+    /**
+     * A balanced binary tree is a binary tree that the heights of the two subtrees of any node never differ by more than one.
+     * @return true if it is balanced, else false
+     */
+    boolean isBalanced() {
+        return checkHeight(root) != Integer.MIN_VALUE;
+    }
+
+    int checkHeight(Node node) {
+        if (node == null) {
+            return -1;
+        }
+
+        int leftHeight = checkHeight(node.left);
+        if (leftHeight == Integer.MIN_VALUE) {
+            return Integer.MIN_VALUE;
+        }
+
+        int rightHeight = checkHeight(node.right);
+        if (rightHeight == Integer.MIN_VALUE) {
+            return Integer.MIN_VALUE;
+        }
+
+        int heightDiff = leftHeight - rightHeight;
+
+        if (Math.abs(heightDiff) > BALANCED_TREE_MAX_HEIGHT) {
+            return Integer.MIN_VALUE;
+        } else {
+            return Math.max(checkHeight(node.left), checkHeight(node.right)) + 1;
+        }
     }
 
     int findElement(int value) {
@@ -84,6 +117,7 @@ public class BinaryTree {
         bt.addNode(3);
         bt.addNode(12);
         bt.addNode(6);
+        bt.addNode(9);
 
         System.out.println("Found: " + bt.findElement(7));
         System.out.println("Found: " + bt.findElement(12));
@@ -91,6 +125,8 @@ public class BinaryTree {
         System.out.println("Found: " + bt.findElement(3));
         System.out.println("Found: " + bt.findElement(6));
         System.out.println("Found: " + bt.findElement(16));
+
+        System.out.println("is balanced: " + bt.isBalanced());
 
         System.out.println("Pre order:");
         printPreOrder(bt.root);
