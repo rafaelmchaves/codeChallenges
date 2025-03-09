@@ -23,7 +23,7 @@ public class Permutation {
         return true; // letters array has no negative values, and therefore no positive values either
     }
 
-    //This approach is a more human-readable code
+    //This approach is more human-readable code
     static boolean permutationWithSortAlgorithm(String s1, String s2) {
         if (s1.length() != s2.length()) {
             return false;
