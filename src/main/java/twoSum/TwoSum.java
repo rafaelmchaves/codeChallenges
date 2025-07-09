@@ -1,9 +1,6 @@
 package twoSum;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 public class TwoSum {
 
@@ -48,6 +45,21 @@ public class TwoSum {
 
 		return new int[0];
 
+	}
+
+	private static int[] twoSumWithSet(int[] array, int target) {
+		Set<Integer> set = new HashSet<>();
+
+		for (int i = 0; i < array.length; i++) {
+			int aux = target - array[i];
+			if (set.contains(aux)) {
+				return new int[] {aux, array[i]};
+			} else {
+				set.add(array[i]);
+			}
+		}
+
+		return new int[] {0};
 	}
 
 }
